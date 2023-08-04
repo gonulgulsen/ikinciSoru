@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ikinciSoru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="minValue">Minimum Değer:</label>
+        <input type="range" id="minValue" min="1" max="100" value="1">
+        <button type="button" onclick="sec1()">Seç</button>
+        <input type="text" id="sec1" name="sec1"><br>
+
+
+        <label for="maxValue">Maksimum Değer:</label>
+        <input type="range" id="maxValue" min="1" max="100" value="100">
+        <button type="button" onclick="sec2()">Seç</button>
+        <input type="text" id="sec2" name="sec2"><br>
+
+
+        <button onclick="RandomNumber()">Üret</button>
+        <hr />
+        <label>Rastgele Sayı:</label><span id="resultLabel"></span>
+    </div>
+
+    <script>
+        function sec1() {
+            var sliderValue = document.getElementById("minValue").value;
+            document.getElementById("sec1").value = sliderValue;
+        }
+
+        function sec2() {
+            var sliderValue = document.getElementById("maxValue").value;
+            document.getElementById("sec2").value = sliderValue;
+        }
+
+        function RandomNumber() {
+            const minValue = parseInt(document.getElementById('minValue').value);
+            const maxValue = parseInt(document.getElementById('maxValue').value);
+            const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+
+            document.getElementById('resultLabel').textContent = randomNumber;
+        }
+    </script>
+</body>
+</html>
